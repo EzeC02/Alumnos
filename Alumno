@@ -1,5 +1,6 @@
 package Alumnos;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Alumno {
@@ -7,18 +8,48 @@ private String nombre;
 private String apellido;
 private int dni;
 
+
 Alumno(){}
 Alumno(String x,String y, int z){
     this.nombre=x;
     this.apellido=y;
     this.dni=z;
 }
+@Override
+public String toString(){
+	return "Nombre: "+this.nombre + "Apellido: "+ this.apellido +"DNI: "+this.dni+"\n";
+}
+
+
+public String getNombre() {
+	return nombre;
+}
+public void setNombre(String nombre) {
+	this.nombre = nombre;
+}
+public String getApellido() {
+	return apellido;
+}
+public void setApellido(String apellido) {
+	this.apellido = apellido;
+}
+public int getDni() {
+	return dni;
+}
+public void setDni(int dni) {
+	this.dni = dni;
+}
+
 
 static void menu(){
 
     Scanner sc= new Scanner(System.in);
-
-    
+    String nom,ape;
+    int dn;
+    Alumno c = new Alumno();
+    Alumno a = new Alumno();
+    Alumno b = new Alumno();
+    ArrayList<Alumno> ab= new ArrayList<Alumno>();
 
     System.out.println("Menu de operaciones");
     System.out.println("1 - Crea 3 objeto alumno");
@@ -27,47 +58,77 @@ static void menu(){
     System.out.println("4 - Salir");
 
     int opc= sc.nextInt();
-    
+    do {
     switch (opc) {
         case 1:
 System.out.println("Ingrese nombre: ");
-String nom= sc.nextLine();
-//system('CLS');
-System.out.println("Ingrese apellido: ");
-String ape= sc.nextLine();
-System.out.println("Ingrese dni: ");
-int dn= sc.nextInt();
+nom= sc.next();
 
-Alumno a = new Alumno(nom,ape,dn);
-
-System.out.println("Ingrese nombre: ");
-nom= sc.nextLine();
 System.out.println("Ingrese apellido: ");
-ape= sc.nextLine();
+ape= sc.next();
+
 System.out.println("Ingrese dni: ");
 dn= sc.nextInt();
 
-Alumno b = new Alumno(nom,ape,dn);
+a = new Alumno(nom,ape,dn);
 
 System.out.println("Ingrese nombre: ");
-nom= sc.nextLine();
+nom= sc.next();
 System.out.println("Ingrese apellido: ");
-ape= sc.nextLine();
+ape= sc.next();
 System.out.println("Ingrese dni: ");
 dn= sc.nextInt();
 
-Alumno c = new Alumno(nom,ape,dn);
+b = new Alumno(nom,ape,dn);
+
+System.out.println("Ingrese nombre: ");
+nom= sc.next();
+
+System.out.println("Ingrese apellido: ");
+ape= sc.next();
+
+System.out.println("Ingrese dni: ");
+dn= sc.nextInt();
+
+c = new Alumno(nom,ape,dn);
 break;
         case 2:
+        
+        	ab.add(a);
+        	ab.add(b);
+        	ab.add(c);
+        	break;
+        	
         case 3:
-        case 4:
-            
-         
+        	
+        	for(int i = 0;i<ab.size();i++) {
+        		if(ab.get(i).getDni()%2==0 ) {
+        			System.out.println(ab.get(i));
+        		}
+        	}
+        	break;
+        	
     }
-}
+    System.out.println("Vuelva a seleccionar opcion: ");
+    
+    System.out.println("Menu de operaciones");
+    System.out.println("1 - Crea 3 objeto alumno");
+    System.out.println("2 - Agrega objetos a un ArrayList");
+    System.out.println("3 - Mostrar datos dni par del ArrayList");
+    System.out.println("4 - Salir");
+    
+    opc = sc.nextInt();
+    
+    }while(opc!=4);
+            
+    }     
+    
+
 
 public static void main(String[] args) {
-    menu();
+    
+	
+	menu();
 }
 
 }
