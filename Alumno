@@ -1,0 +1,73 @@
+package Alumnos;
+
+import java.util.Scanner;
+
+public class Alumno {
+private String nombre;
+private String apellido;
+private int dni;
+
+Alumno(){}
+Alumno(String x,String y, int z){
+    this.nombre=x;
+    this.apellido=y;
+    this.dni=z;
+}
+
+static void menu(){
+
+    Scanner sc= new Scanner(System.in);
+
+    
+
+    System.out.println("Menu de operaciones");
+    System.out.println("1 - Crea 3 objeto alumno");
+    System.out.println("2 - Agrega objetos a un ArrayList");
+    System.out.println("3 - Mostrar datos dni par del ArrayList");
+    System.out.println("4 - Salir");
+
+    int opc= sc.nextInt();
+    
+    switch (opc) {
+        case 1:
+System.out.println("Ingrese nombre: ");
+String nom= sc.nextLine();
+//system('CLS');
+System.out.println("Ingrese apellido: ");
+String ape= sc.nextLine();
+System.out.println("Ingrese dni: ");
+int dn= sc.nextInt();
+
+Alumno a = new Alumno(nom,ape,dn);
+
+System.out.println("Ingrese nombre: ");
+nom= sc.nextLine();
+System.out.println("Ingrese apellido: ");
+ape= sc.nextLine();
+System.out.println("Ingrese dni: ");
+dn= sc.nextInt();
+
+Alumno b = new Alumno(nom,ape,dn);
+
+System.out.println("Ingrese nombre: ");
+nom= sc.nextLine();
+System.out.println("Ingrese apellido: ");
+ape= sc.nextLine();
+System.out.println("Ingrese dni: ");
+dn= sc.nextInt();
+
+Alumno c = new Alumno(nom,ape,dn);
+break;
+        case 2:
+        case 3:
+        case 4:
+            
+         
+    }
+}
+
+public static void main(String[] args) {
+    menu();
+}
+
+}
